@@ -1,0 +1,62 @@
+--Como iniciar o projeto
+
+ - Abrir o banco de dados:
+C:\Program Files\MongoDB\Server\4.2\bin
+
+mongod --dbpath C:\Users\isabe\Documents\Software_Engineer_Work\to_do\data\
+
+em outro prompt
+
+mongo
+Trocar o bando de dados
+use to_do
+
+ - Voltar para a pasta do projeto
+C:\Users\isabe\Documents\Software_Engineer_Work\to_do
+npm start
+
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+
+
+
+/* GET Userlist page. */
+router.get('/userlist', function(req, res) {
+   var db = require("../db");
+   var Users = db.Mongoose.model('taskcolection', db.UserSchema, 'taskcolection');
+   Users.find({}).lean().exec(
+      function (e, docs) {
+         res.render('userlist.ejs', { "userlist": docs });
+   });
+});
+
+/* GET New User page. */
+router.get('/newuser', function(req, res) {
+  res.render('newuser.ejs', { title: 'Add New User' });
+  });
+
+  /* POST to Add User Service */
+router.post('/adduser', function (req, res) {
+
+  var db = require("../db");
+  var userName = req.body.username;
+  var userEmail = req.body.useremail;
+  var userPassword = req.body.userpassword;
+
+  var Users = db.Mongoose.model('taskcolection', db.UserSchema, 'taskcolection');
+  var user = new Users({ username: userName, email: userEmail, password: userPassword });
+  user.save(function (err) {
+      if (err) {
+          console.log("Error! " + err.message);
+          return err;
+      }
+      else {
+          console.log("Post saved");
+          res.redirect("userlist");
+      }
+  });
+});
