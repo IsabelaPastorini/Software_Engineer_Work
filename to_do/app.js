@@ -36,7 +36,9 @@ app.use(express.static(__dirname + '/views'));
 
 // include routes
 var routes = require('./routes/index');
+var login = require('./routes/login');
 app.use('/', routes);
+app.use('/login',login);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

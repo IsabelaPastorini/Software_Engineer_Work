@@ -6,7 +6,11 @@ var path = require("path")
 // GET route for reading data
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render(path.join(__dirname + '/../views/newuser.ejs'), { title: 'Express' });
+  res.render(path.join(__dirname + '/../views/login.ejs'), { title: 'Express' });
+});
+
+router.get('/newuser', function(req, res, next) {
+  res.render(path.join(__dirname + '/../views/newuser.ejs'), { title: 'Add new user' });
 });
 
 
