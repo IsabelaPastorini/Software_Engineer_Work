@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var User = require('../module/users');
 var path = require("path")
+const Window = require('window');
+ 
+const window = new Window();
 
 // GET route for reading data
 /* GET home page. */
@@ -34,13 +37,12 @@ router.post('/', function (req, res, next) {
       username: req.body.username,
       password: req.body.password,
     }
-
     User.create(userData, function (error, user) {
       if (error) {
         return next(error);
       } else {
-        req.session.userId = user._id;
-        return res.redirect('/profile');
+       // req.session.userId = user._id;
+        return res.redirect('/login');
       }
     });
 
@@ -58,7 +60,9 @@ router.post('/', function (req, res, next) {
   } else {
     var err = new Error('All fields required.');
     err.status = 400;
-    return next(err);
+    console.log('foimal');
+    //return res.status(401).json({ message: 'All fields required.' });
+    return res.redirect('/login');
   }
 })
 
@@ -88,7 +92,7 @@ router.get('/logout', function (req, res, next) {
       if (err) {
         return next(err);
       } else {
-        return res.redirect('/');
+        return res.redirect('/login');
       }
     });
   }

@@ -7,48 +7,60 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register Login with Authentication</title>
-<!--Custom Theme files-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Register Login Widget template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login Signup Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!--web-fonts-->
-<link href='//fonts.googleapis.com/css?family=Jura:400,300,500,600' rel='stylesheet' type='text/css'>
-<!--//web-fonts-->
-</head>
-<body>
-	<h1>Test Authentication 🚀 </h1>
-	<!-- main -->
-	<div class="main">
-		<!--login-profile-->
-		
-		<!--login-profile-->
-		<!--signin-form-->
-		<div class="w3">
-			<div class="signin-form profile">
-				<h3>Login</h3>
-				
-				<div class="login-form">
-					<form action="/" method="post">
-						<input type="text" name="logemail" placeholder="E-mail" required="">
-						<input type="password" name="logpassword" placeholder="Password" required="">
-						<div class="tp">
-							<input type="submit" value="LOGIN NOW">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="clear"></div>
-		<!--//signin-form-->	
-	</div>
-	<div class="copyright">
-		<p><a href="/newuser" target="_blank" >Register</a></p>
-	</div>	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
 
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="main">
+    <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                        <a href="/newuser" class="signup-image-link">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">	
+                        <h2 class="form-title">Sign up</h2>
+                        <form action="/" method="post" class="register-form" id="login-form">
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="logemail" id="your_name" placeholder="Your E-mail"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="logpassword" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    
 	<script type="text/javascript">
 		var passWordField = document.getElementById('password')
 		var passWordConfirmField = document.getElementById('password_conf')
@@ -61,6 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  	}
 		}
 	</script>	
-
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

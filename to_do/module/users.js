@@ -1,5 +1,6 @@
 var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
+var uniqueValidator = require('mongoose-unique-validator');
 
 var UserSchema = new mongoose.Schema({
   email: {
@@ -20,6 +21,8 @@ var UserSchema = new mongoose.Schema({
   }
 });
 
+
+UserSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
 //authenticate input against database
 UserSchema.statics.authenticate = function (email, password, callback) {
   User.findOne({ email: email })
